@@ -1,22 +1,22 @@
 package com.duykypaul.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class NewsDTO {
+    @Getter @Setter
     private String title;
+
+    @Getter @Setter
     private String content;
 
-    public String getTitle() {
-        return title;
-    }
+    @Getter @Setter
+    private String thumbnail;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @Getter @Setter
+    private String shortDescription;
 
-    public String getContent() {
-        return content;
-    }
+    @Getter @Setter
+    private String categoryCode;
 
-    public void setContent(String content) {
-        this.content = content;
-    }
 }
