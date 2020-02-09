@@ -29,5 +29,4 @@ public class NewsEntity extends BaseEntity{
     @JoinColumn(name = "category_id", nullable = false)
     @Getter @Setter
     private CategoryEntity category;
-
 }

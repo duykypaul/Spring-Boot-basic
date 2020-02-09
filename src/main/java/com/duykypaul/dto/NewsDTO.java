@@ -3,7 +3,7 @@ package com.duykypaul.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-public class NewsDTO {
+public class NewsDTO extends BaseDTO{
     @Getter @Setter
     private String title;
 
@@ -18,5 +18,4 @@ public class NewsDTO {
 
     @Getter @Setter
     private String categoryCode;
-
 }
