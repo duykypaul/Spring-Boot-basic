@@ -3,10 +3,12 @@ package com.duykypaul.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public abstract class BaseDTO {
-    @Getter
+public abstract class BaseDTO<U> {
+    @Getter @Setter
     private Long id;
 
     @Getter @Setter
@@ -20,4 +22,7 @@ public abstract class BaseDTO {
 
     @Getter @Setter
     private Date modifiedAt;
+
+    @Getter @Setter
+    private List<U> listResult = new ArrayList<>();
 }

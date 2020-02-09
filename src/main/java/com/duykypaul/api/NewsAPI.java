@@ -15,9 +15,10 @@ public class NewsAPI {
         return newsService.save(model);
     }
 
-    @PutMapping(value = "/news")
-    public NewsDTO updateNews(@RequestBody NewsDTO model){
-        return model;
+    @PutMapping(value = "/news/{id}")
+    public NewsDTO updateNews(@RequestBody NewsDTO model, @PathVariable("id") Long id){
+        model.setId(id);
+        return newsService.save(model);
     }
 
     @DeleteMapping(value = "/news")

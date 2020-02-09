@@ -3,7 +3,7 @@ package com.duykypaul.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-public class CategoryDTO extends BaseDTO{
+public class CategoryDTO extends BaseDTO<CategoryDTO> {
     @Getter @Setter
     private String name;
 

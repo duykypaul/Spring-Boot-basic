@@ -19,22 +19,21 @@ public class NewsService implements INewsService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    /*@Autowired
-    private NewsConverter newsConverter;*/
+    @Autowired
+    private NewsConverter newsConverter;
 
     @Autowired
     private ModelMapper modelMapper;
 
     @Override
     public NewsDTO save(NewsDTO newsDTO) {
-        CategoryEntity categoryEntity = categoryRepository.findOneByCode(newsDTO.getCategoryCode());
-
-        /*NewsEntity newsEntity = newsConverter.toEntity(newsDTO);*/
         NewsEntity newsEntity = modelMapper.map(newsDTO, NewsEntity.class);
+        if(newsDTO.getId() != null){
+            newsEntity = newsConverter.oldToNew(newsRepository.findOne(newsDTO.getId()),
+                        modelMapper.map(newsDTO, NewsEntity.class));
+        }
+        CategoryEntity categoryEntity = categoryRepository.findOneByCode(newsDTO.getCategoryCode());
         newsEntity.setCategory(categoryEntity);
-        newsRepository.save(newsEntity);
-
-        /*return newsConverter.toDTO(newsEntity);*/
-        return modelMapper.map(newsEntity, NewsDTO.class);
+        return modelMapper.map(newsRepository.save(newsEntity), NewsDTO.class);
     }
 }
