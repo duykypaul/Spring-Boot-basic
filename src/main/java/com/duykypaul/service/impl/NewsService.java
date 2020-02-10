@@ -36,4 +36,11 @@ public class NewsService implements INewsService {
         newsEntity.setCategory(categoryEntity);
         return modelMapper.map(newsRepository.save(newsEntity), NewsDTO.class);
     }
+
+    @Override
+    public void delete(Long[] ids) {
+        for(Long item : ids){
+            newsRepository.delete(item);
+        }
+    }
 }
