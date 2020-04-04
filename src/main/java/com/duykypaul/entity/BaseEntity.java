@@ -19,12 +19,12 @@ public abstract class BaseEntity {
     @Getter
     private Long id;
 
-    @Column
+    @Column(updatable = false)
     @Getter @Setter
     @CreatedBy
     private String createdBy;
 
-    @Column
+    @Column(updatable = false)
     @Getter @Setter
     @CreatedDate
     private Date createdAt;

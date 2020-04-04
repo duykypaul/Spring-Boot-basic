@@ -16,8 +16,9 @@ public class CategoryAPI {
     }
 
     @PutMapping(value = "/category")
-    public CategoryDTO updateCategory(@RequestBody CategoryDTO model){
-        return model;
+    public CategoryDTO updateCategory(@RequestBody CategoryDTO model, @PathVariable("id") Long id){
+        model.setId(id);
+        return categoryService.save(model);
     }
 
     @DeleteMapping(value = "/category")
