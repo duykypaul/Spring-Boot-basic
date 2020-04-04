@@ -9,7 +9,10 @@ import com.duykypaul.repository.NewsRepository;
 import com.duykypaul.service.INewsService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class NewsService implements INewsService {
@@ -42,5 +45,14 @@ public class NewsService implements INewsService {
         for(Long item : ids){
             newsRepository.delete(item);
         }
+    }
+
+    @Override
+    public NewsDTO findById(Long id) {
+        Optional<NewsEntity> newsEntity = newsRepository.findById(id);
+        if(newsEntity.isPresent()) {
+            return modelMapper.map(newsEntity.get(), NewsDTO.class);
+        }
+        return null;
     }
 }

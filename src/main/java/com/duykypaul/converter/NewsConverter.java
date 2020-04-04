@@ -37,10 +37,6 @@ public class NewsConverter {
         old.setContent(newt.getContent());
         old.setShortDescription(newt.getShortDescription());
         old.setThumbnail(newt.getThumbnail());
-        old.setCreatedAt(newt.getCreatedAt());
-        old.setCreatedBy(newt.getCreatedBy());
-        old.setModifiedAt(newt.getModifiedAt());
-        old.setModifiedBy(newt.getModifiedBy());
         return old;
     }
 }
