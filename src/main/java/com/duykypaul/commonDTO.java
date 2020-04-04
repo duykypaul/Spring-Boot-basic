@@ -1,7 +1,7 @@
 package com.duykypaul;
 
 public class commonDTO {
-    private Integer apiCode;
-    private Integer apiCode1;
-    private Integer apiCode2;
+    private Integer dto;
+    private Integer dto1;
+    private Integer dto2;
 }
